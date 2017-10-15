@@ -82,6 +82,27 @@ const baseWebpackConfig = {
 					},
 					'img-loader'
 				]
+			},
+			{
+				test: /\.(html)$/,
+				use: {
+					loader: 'html-loader',
+					options: {
+						attrs: [':video:src']
+					}
+				}
+			},
+			{
+				test: /\.(mp4)$/,
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 8192,
+							mimetype: 'video/mp4'
+						}
+					}
+				]
 			}
 		])
 	},

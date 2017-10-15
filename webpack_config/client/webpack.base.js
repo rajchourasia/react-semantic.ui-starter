@@ -58,6 +58,27 @@ const baseBuild = {
 					},
 					'img-loader'
 				]
+			},
+			{
+				test: /\.(html)$/,
+				use: {
+					loader: 'html-loader',
+					options: {
+						attrs: [':video:src']
+					}
+				}
+			},
+			{
+				test: /\.(mp4)$/,
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 8192,
+							mimetype: 'video/mp4'
+						}
+					}
+				]
 			}
 			// NOTE: LQIP loader doesn't work with file-loader and url-loader :(
 			// `npm i --save-dev lqip-loader`

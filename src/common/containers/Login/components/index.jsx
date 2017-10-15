@@ -5,6 +5,7 @@ import {Helmet} from 'react-helmet'
 import _ from 'lodash'
 import {LoginButton} from './style'
 import {TextCenter} from 'styles/base'
+import MaxVideoPlayer from 'components/MaxVideoPlayer'
 
 export default class LoginComponent extends Component {
 	constructor (props) {
@@ -43,6 +44,28 @@ export default class LoginComponent extends Component {
 			content: 'Login',
 			icon: 'sign in'
 		}
+		const videoPlaylist = [{
+			sources: [{
+				src: require('videos/one.mp4'),
+				type: 'video/mp4'
+			}]
+		}, {
+			sources: [{
+				src: require('videos/two.mp4'),
+				type: 'video/mp4'
+			}]
+		}, {
+			sources: [{
+				src: require('videos/three.mp4'),
+				type: 'video/mp4'
+			}]
+		}]
+
+		const videoJsOptions = {
+			autoplay: true,
+			controls: true,
+			videoPlaylist
+		}
 
 		return (
 			<Grid
@@ -57,6 +80,7 @@ export default class LoginComponent extends Component {
 				</Helmet>
 				<Grid.Row>
 					<Grid.Column tablet={10} mobile={16} computer={6}>
+						<MaxVideoPlayer { ...videoJsOptions } />
 						<Form onSubmit={::this.handleSubmit} {...loginFormProps}>
 							{errors &&
 								<Message

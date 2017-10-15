@@ -44,7 +44,8 @@ export default {
 			routing: `${srcCommonPath}/routing/`,
 			styles: `${srcCommonPath}/styles/`,
 			static: `${rootPath}/static`,
-			images: `${rootPath}/static/images`
+			images: `${rootPath}/static/images`,
+			videos: `${rootPath}/static/videos`
 		},
 		extensions: ['.js', '.json', '.jsx'],
 		modules: [srcPath, path.join(rootPath, 'node_modules')]

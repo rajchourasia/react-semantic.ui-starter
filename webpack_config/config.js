@@ -7,7 +7,7 @@ import i18n from '../i18n'
 import manifest from './assets/manifest'
 
 function ternary (a, b) {
-	return a ? a : b
+	return a || b
 }
 
 // Vars for both server and frontend
@@ -30,7 +30,6 @@ const DIST_PATH = ternary(process.env.DIST_PATH, path.join(distPath, './client',
 const JWT_SECRET = ternary(process.env.JWT_SECRET, 'secret')
 const SENTRY_DSN = ternary(process.env.SENTRY_DSN)
 const PORT = ternary(process.env.PORT, 4000)
-
 
 export default {
 	title: 'React-Semantic.UI-Starter',
